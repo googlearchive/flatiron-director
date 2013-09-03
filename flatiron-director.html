@@ -6,32 +6,32 @@ license that can be found in the LICENSE file.
 <script src="director.min.js"></script>
 
 <polymer-element name="flatiron-director" attributes="route autoHash">
-	<script>
-		(function() {
-			var private_router;
-			Polymer('flatiron-director', {
-			  autoHash: false,
-				created: function() {
-					this.router.on(/(\w*)/, function(route) {
-						this.route = route;
-					}.bind(this));
-					var initialRoute = this.router.getRoute(0);
-					this.route = initialRoute || '';
-				},
-				get router() {
-					if (!private_router) {
-						private_router = new Router();
-						private_router.init();
-					}
-					return private_router;
-				},
-				routeChanged: function() {
-				  if (this.autoHash) {
-				    window.location.hash = this.route;
-				  }
-					this.fire('director-route', this.route);
-				}
-			});
-		})();
-	</script>
+  <script>
+    (function() {
+      var private_router;
+      Polymer('flatiron-director', {
+        autoHash: false,
+        created: function() {
+          this.router.on(/(\w*)/, function(route) {
+            this.route = route;
+          }.bind(this));
+          var initialRoute = this.router.getRoute(0);
+          this.route = initialRoute || '';
+        },
+        get router() {
+          if (!private_router) {
+            private_router = new Router();
+            private_router.init();
+          }
+          return private_router;
+        },
+        routeChanged: function() {
+          if (this.autoHash) {
+            window.location.hash = this.route;
+          }
+          this.fire('director-route', this.route);
+        }
+      });
+    })();
+  </script>
 </polymer-element>
