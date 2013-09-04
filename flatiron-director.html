@@ -12,7 +12,7 @@ license that can be found in the LICENSE file.
       Polymer('flatiron-director', {
         autoHash: false,
         created: function() {
-          this.router.on(/(\w*)/, function(route) {
+          this.router.on(/(.*)/, function(route) {
             this.route = route;
           }.bind(this));
           var initialRoute = this.router.getRoute(0);
