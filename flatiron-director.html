@@ -15,8 +15,13 @@ license that can be found in the LICENSE file.
           this.router.on(/(.*)/, function(route) {
             this.route = route;
           }.bind(this));
-          var initialRoute = this.router.getRoute(0);
-          this.route = initialRoute || '';
+          this.route = this.router.getRoute(0) || '';
+        },
+        routeChanged: function() {
+          if (this.autoHash) {
+            window.location.hash = this.route;
+          }
+          this.fire('director-route', this.route);
         },
         get router() {
           if (!private_router) {
@@ -24,12 +29,6 @@ license that can be found in the LICENSE file.
             private_router.init();
           }
           return private_router;
-        },
-        routeChanged: function() {
-          if (this.autoHash) {
-            window.location.hash = this.route;
-          }
-          this.fire('director-route', this.route);
         }
       });
     })();
