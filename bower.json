@@ -2,6 +2,7 @@
   "name": "flatiron-director",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#master"
-  }
+    "polymer": "Polymer/polymer#0.1.3"
+  },
+  "version": "0.1.3"
 }
