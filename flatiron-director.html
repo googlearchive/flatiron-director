@@ -6,33 +6,38 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../polymer/polymer.html">
 <script src="director/director.min.js"></script>
 
-<polymer-element name="flatiron-director" attributes="route autoHash" hidden>
-  <script>
-    (function() {
-      var private_router;
-      Polymer('flatiron-director', {
-        autoHash: false,
-        ready: function() {
-          this.router.on(/(.*)/, function(route) {
-            this.route = route;
-          }.bind(this));
-          this.route = this.router.getRoute() ? 
-            this.router.getRoute().join(this.router.delimiter): '';
-        },
-        routeChanged: function() {
-          if (this.autoHash) {
-            window.location.hash = this.route;
-          }
-          this.fire('director-route', this.route);
-        },
-        get router() {
-          if (!private_router) {
-            private_router = new Router();
-            private_router.init();
-          }
-          return private_router;
+<dom-module id="flatiron-director" hidden>
+  <template>
+  </template>
+</dom-module>
+
+<script>
+    var private_router;
+    Polymer({
+      is : 'flatiron-director',
+      properties : {
+        route : { type : String, notify : true, observer : 'routeChanged' },
+        autoHash : { type : Boolean, value : false }
+      },
+      ready: function() {
+        this.router.on(/(.*)/, function(route) {
+          this.route = route;
+        }.bind(this));
+        this.route = this.router.getRoute() ? 
+          this.router.getRoute().join(this.router.delimiter): '';
+      },
+      routeChanged: function() {
+        if (this.autoHash) {
+          window.location.hash = this.route;
         }
-      });
-    })();
-  </script>
-</polymer-element>
+        this.fire('director-route', this.route);
+      },
+      get router() {
+        if (!private_router) {
+          private_router = new Router();
+          private_router.init();
+        }
+        return private_router;
+      }
+    });
+</script>
