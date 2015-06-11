@@ -9,21 +9,24 @@ license that can be found in the LICENSE file.
     <title>Director</title>
     <script src="../webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="flatiron-director.html">
-  </head>
-  <body>
-    <polymer-element name="x-test">
+    <dom-module id="x-test">
       <template>
         <flatiron-director route="{{route}}" autoHash></flatiron-director>
         hash: <input value="{{route}}">
-        <a href="#barnacle">Relocate</a>
+        <a href="#barnacle">Relocate 1</a>
+        <a href="#tentacle">Relocate 2</a>
       </template>
-      <script>
-        Polymer('x-test', {
-          route: 'hello'
-        });
-      </script>
-    </polymer-element>
-    
+    </dom-module>
+    <script>
+      Polymer({
+        is : 'x-test',
+        properties : { 
+          route: { type : String , value : 'hello' }
+        }
+      });
+    </script>
+  </head>
+  <body>
     <x-test></x-test>
   </body>
 </html>
