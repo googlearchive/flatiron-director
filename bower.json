@@ -1,9 +1,9 @@
 {
   "name": "flatiron-director",
   "descrition": "Web component for routing that wraps the flatiron director JS library",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "authors": [
-    "The Plastikit Authors <developers@polymer-project.org>"
+    "The Polymer Authors <developers@polymer-project.org>"
   ],
   "keywords": [
     "web-components",
@@ -25,12 +25,12 @@
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.9.0"
+    "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^0.9.0",
-    "test-fixture": "PolymerElements/test-fixture#^0.9.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
     "web-component-tester": "*",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.6.0"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }
 }
