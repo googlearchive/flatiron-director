@@ -1,6 +1,6 @@
 # flatiron-director
 
-`flatiron-director` is a web component for routing that wraps the flatiron director JS library.
+`flatiron-director` is a web component for routing that wraps the [flatiron director](https://github.com/flatiron/director) isomorphic URL router library.
 
 ### Example
 
