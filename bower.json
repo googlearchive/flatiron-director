@@ -1,7 +1,36 @@
 {
   "name": "flatiron-director",
-  "private": true,
+  "descrition": "Web component for routing that wraps the flatiron director JS library",
+  "version": "1.0.0",
+  "authors": [
+    "The Polymer Authors <developers@polymer-project.org>"
+  ],
+  "keywords": [
+    "web-components",
+    "web-component",
+    "polymer",
+    "routing",
+    "navigation"
+  ],
+  "main": "flatiron-director.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerLabs/flatiron-director"
+  },
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/PolymerLabs/flatiron-director",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
   "dependencies": {
-    "polymer": "Polymer/polymer#master"
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
+    "web-component-tester": "*",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }
 }
