@@ -11,15 +11,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <script src="director/director.min.js"></script>
 
 <script>
-  
+
   /**
-   
+
 `flatiron-director` is a web component for routing that wraps the flatiron director JS library.
 
 ### Example
 
-```html
-<flatiron-director route="{{route}}" auto-hash></flatiron-director>
+    <flatiron-director route="{{route}}" auto-hash></flatiron-director>
+
+@element flatiron-director
+@demo demo/index.html
 ```
    */
   Polymer({
@@ -35,7 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         type: Boolean,
         value: false
       },
-      
+
       /**
        * Gets or sets the current route.
        */
@@ -46,29 +48,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     },
-    
+
     observers: [
       '_routeChanged(route)'
     ],
-    
+
     _routingIsReady: false,
 
     ready: function() {
       this._router.on(/(.*)/, function(route) {
         this.route = route;
       }.bind(this));
-      this.route = this._router.getRoute() ? 
+      this.route = this._router.getRoute() ?
         this._router.getRoute().join(this._router.delimiter): '';
       this._routingIsReady = true;
     },
-    
+
     _routeChanged: function() {
       if (this.autoHash && this._routingIsReady) {
         window.location.hash = this.route ? this.route : '';
       }
       this.fire('director-route', this.route);
     },
-    
+
     get _router() {
       if (!window.FlatironDirectorPolymer) {
         window.FlatironDirectorPolymer = new Router();
